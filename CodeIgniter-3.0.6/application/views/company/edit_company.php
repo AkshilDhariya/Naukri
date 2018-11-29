@@ -10,35 +10,35 @@
 		<label for="Companyname">Company Name:</label>
 		<?php echo form_input(['class'=>'form-control','placeholder'=>'Enter company name','name'=>'company_name','value'=>set_value('company_name',$company->company_name)]);?>
 		
-	</div></div><div class="col-lg-6"style="margin:30px;"><?php echo form_error('company_name'); ?></div></div>
+	</div></div><div class="col-lg-6"style="margin-top:50px;"><?php echo form_error('company_name'); ?></div></div>
 	
 	<div class="row">
 	<div class="col-lg-6" ">
 	<div class="form-group">
 		<label for="pwd">Comapny Detail:</label>
 		<?php echo form_textarea(['class'=>'form-control','placeholder'=>'Enter Company Details','name'=>'company_detail','value'=>set_value('company_detail',$company->company_detail)]);?>
-	</div></div><div class="col-lg-6" style="margin:30px;"><?php echo form_error('company_detail'); ?> </div> </div>
+	</div></div><div class="col-lg-6" style="margin-top:50px;"><?php echo form_error('company_detail'); ?> </div> </div>
 	<div class="row">
 	<div class="col-lg-6">
 	<div class="form-group">
 		<label for="Field">Field Name:</label>
 		<?php echo form_input(['class'=>'form-control','placeholder'=>'Enter Field name','name'=>'field_name','value'=>set_value('field_name',$company->field_name)]);?>
 		
-	</div></div><div class="col-lg-6"style="margin:30px;"><?php echo form_error('field_name'); ?></div></div>
+	</div></div><div class="col-lg-6"style="margin-top:50px;"><?php echo form_error('field_name'); ?></div></div>
 	<div class="row">
 	<div class="col-lg-6">
 	<div class="form-group">
 		<label for="Salary">Salary:</label>
 		<?php echo form_input(['class'=>'form-control','placeholder'=>'Salary','name'=>'salary','value'=>set_value('salary',$company->salary)]);?>
 		
-	</div></div><div class="col-lg-6"style="margin:30px;"><?php echo form_error('salary'); ?></div></div>
+	</div></div><div class="col-lg-6"style="margin-top:50px;"><?php echo form_error('salary'); ?></div></div>
 	<div class="row">
 	<div class="col-lg-6">
 	<div class="form-group">
 		<label for="Eligibility">Eligibility:</label>
 		<?php echo form_input(['class'=>'form-control','placeholder'=>'Enter Eligibility','name'=>'eligibility','value'=>set_value('eligibility',$company->eligibility)]);?>
 		
-	</div></div><div class="col-lg-6"style="margin:30px;"><?php echo form_error('eligibility'); ?></div></div>
+	</div></div><div class="col-lg-6"style="margin-top:50px;"><?php echo form_error('eligibility'); ?></div></div>
 	<div class="row">
 	<div class="col-lg-6">
 	<div class="form-group">

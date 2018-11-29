@@ -1,14 +1,12 @@
 <?php
 class company extends MY_Controller
 {
-public function __constructor()
-{
-	parent::__constructor();
-	if(!$this->session->userdata('id'))
-	return redirect('clogin');
-}
 public function welcome()
 {
+		if(!$this->session->userdata('company_name'))
+		{return redirect('clogin');}
+	else
+	{
 		$this->load->model('loginmodel');
 		$this->load->library('pagination');
 		$config=[
@@ -28,11 +26,15 @@ public function welcome()
 			];
 			$this->pagination->initialize($config);
 			$companys=$this->loginmodel->companyList($config['per_page'],$this->uri->segment(3));
-			$this->load->view('company/dashbord',['companys'=>$companys]);}
+			$this->load->view('company/dashbord',['companys'=>$companys]);}}
 	
 public function adduser()
 {
-	$this->load->view('company/add_company_field');
+	if(!$this->session->userdata('id'))
+		{return redirect('clogin');}
+	else
+	{
+	$this->load->view('company/add_company_field');}
 }
 public function uservalidation()
 {

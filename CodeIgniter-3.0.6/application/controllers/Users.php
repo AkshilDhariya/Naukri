@@ -11,10 +11,22 @@ public function index()
 		if($field_name)
 		{
 			$this->session->set_userdata('field_name',$field_name);
+			return redirect('Users/detail');
+		}
+		else
+		{
+			$this->session->set_flashdata('msg5','please enter given value');
+			$this->session->set_flashdata('msg_class5','alert-success');
+			return redirect('Home/index');
+		}
+}
+public function detail()
+{
+			
 			$this->load->model('loginmodel');
 			$this->load->library('pagination');
 			$config=[
-			'base_url'=>base_url('Users/index'),
+			'base_url'=>base_url('Users/detail'),
 			'per_page'=>3,
 			'total_rows'=>$this->loginmodel->all_company_count(),
 			'full_tag_open' => "<ul class='pagination'>",
@@ -29,17 +41,9 @@ public function index()
 			'cur_tag_close'=>"</a></li>"
 			];
 			$this->pagination->initialize($config);
-			$companys=$this->loginmodel->all_companylist($config['per_page'],$this->uri->segment(4));
+			$companys=$this->loginmodel->all_companylist($config['per_page'],$this->uri->segment(3));
 			$this->load->view('users/company_list',compact('companys'));
-		}
-		else
-		{
-			$this->session->set_flashdata('msg5','please enter given value');
-			$this->session->set_flashdata('msg_class5','alert-success');
-			return redirect('Home/index');
-		}
-	}
-	
+}
 }
 
 ?>

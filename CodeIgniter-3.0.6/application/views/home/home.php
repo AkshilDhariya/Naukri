@@ -28,7 +28,7 @@
 		<label for="field_name">Enter Field:</label>
 		<?php echo form_input(['class'=>'form-control','placeholder'=>'Enter Field','name'=>'field_name','value'=>set_value('field_name')]);?>
 		
-	</div></div><div class="col-lg-6"style="margin:30px;"><?php echo form_error('field_name'); ?></div></div>
+	</div></div><div class="col-lg-6"style="margin-top :30px;"><?php echo form_error('field_name'); ?></div></div>
 	<div class="row">
 	<div class="col-lg-6" ">
 	<div class="form-group">

@@ -29,7 +29,7 @@ class login extends MY_Controller
 		else
 		{
 			$this->session->set_flashdata('Login_failed','Invalid Username or password');
-			return redirect('users/login');
+			return redirect('login');
 		}
 	}
 	else

@@ -5,7 +5,7 @@ class profile extends MY_Controller
 {
 	parent::__constructor();
 	if(!$this->session->userdata('username'))
-		return redirect('login');
+	return redirect('login');
 }
 public function register()
 {
@@ -13,13 +13,10 @@ public function register()
 }
 public function welcome()
 {
-	if(!$this->session->userdata('username'))
-		{return redirect('login');}
-	else{
-	$this->load->view('users/profile');	
-	}
+	$this->load->model('loginmodel');
+	$question=$this->loginmodel->fetch2();
+	$this->load->view('users/profile',compact('question'));	
 }
-	
 public function sendmail()
 {
 	 $this->form_validation->set_rules('username','User Name','required|alpha|min_length[3]|max_length[10]');

@@ -11,7 +11,7 @@
    <thead><tr><th><h2>Applied company</h2></th></tr></thead>
           <tbody>
                  <?php
-                  if(!$this->session->userdata('que2')): ?>
+                  if(!$question): ?>
                     <tr><td><h4>You Have Not Applied For Any Company</h4></td></tr>
                     	<tr><td><a href="<?= base_url('Home/index'); ?> " class="btn btn-primary">Add Job</a></td></tr>
                     <?php
@@ -21,7 +21,6 @@
 						<thead>
 						<tr>
 					<th>COMPANY_NAME</th>
-					<th>SALARY</th>
 					<th>FIELD NAME</th>
 					<th>SALARY</th>
 					<th>State</th>
@@ -47,6 +46,7 @@
 
      	 				<td><?= anchor("company/edituser",'Edit',['class'=>'btn btn-primary']);?>
         				</td></tr>
+        				<tr><td><a href="<?= base_url('Home/index'); ?> " class="btn btn-primary">Add Job</a></td></tr>
         				<?php endif; ?>
 						</tbody>
 
