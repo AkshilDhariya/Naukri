@@ -33,6 +33,7 @@
       
         <?php echo form_open("profile/updateprofile");?>
          <?php echo form_hidden('userid',$this->session->userdata('id')) ;?>
+         <?php echo form_hidden('username',$this->session->userdata('username')) ;?>
                      <div class="row">
                       <div class="col-lg-6">
                      <div class="form-group">

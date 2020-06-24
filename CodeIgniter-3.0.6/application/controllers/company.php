@@ -3,7 +3,7 @@ class company extends MY_Controller
 {
 public function welcome()
 {
-		if(!$this->session->userdata('company_name'))
+		if(!$this->session->userdata('companyname'))
 		{return redirect('clogin');}
 	else
 	{
@@ -26,15 +26,45 @@ public function welcome()
 			];
 			$this->pagination->initialize($config);
 			$companys=$this->loginmodel->companyList($config['per_page'],$this->uri->segment(3));
-			$this->load->view('company/dashbord',['companys'=>$companys]);}}
+			$this->load->view('company/dashbord',['companys'=>$companys]);
+		}}
 	
-public function adduser()
-{
-	if(!$this->session->userdata('id'))
+	public function addcompany()
+	{
+	if(!$this->session->userdata('companyname'))
 		{return redirect('clogin');}
 	else
 	{
-	$this->load->view('company/add_company_field');}
+	$this->load->view('company/add_company_field');
+	}
+}
+	public function applieduser()
+	{
+	if(!$this->session->userdata('companyname'))
+		{return redirect('clogin');}
+	else
+	{
+	$this->load->model('loginmodel');
+		$this->load->library('pagination');
+		$config=[
+			'base_url'=>base_url('company/applieduser'),
+			'per_page'=>5,
+			'total_rows'=>$this->loginmodel->num_row3(),
+			'full_tag_open' => "<ul class='pagination'>",
+			'full_tag_close' => "</ul>",
+			'next_tag_open' =>"<li class='page-item'>",
+			'next_tag_close' =>"</li>",
+			'prev_tag_open' =>"<li class='page-item'>",
+			'prev_tag_close' =>"</li>",
+			'num_tag_open' =>"<li class='page-item'>",
+			'num_tag_close' =>"<li>",
+			'cur_tag_open' =>"<li class='page-item active'><a>",
+			'cur_tag_close'=>"</a></li>"
+			];
+			$this->pagination->initialize($config);
+			$question=$this->loginmodel->userList5($config['per_page'],$this->uri->segment(3));
+			$this->load->view('company/user',['question'=>$question]);
+	}
 }
 public function uservalidation()
 {
@@ -81,6 +111,12 @@ public function uservalidation()
 	$company=$this->loginmodel->find_company($id);
 	$this->load->view('company/edit_company',['company'=>$company]);
 }
+public function resume($id)
+{	
+	$this->load->model('loginmodel');
+	$company=$this->loginmodel->get_user($id);
+	$this->load->view('company/resume',['company'=>$company]);
+}
 
 public function updatecompany($company_id)
 {
@@ -111,7 +147,7 @@ public function updatecompany($company_id)
 
 public function logout()
 {
-	$this->session->unset_userdata('id');
+	$this->session->unset_userdata('companyname');
 	return redirect('login');
 }
 public function register()
@@ -185,7 +221,7 @@ public function details($id)
 	$company_name=$this->loginmodel->find_company1($id);
 	$this->session->set_userdata('company_name',$company_name);
 	$field_name=$this->loginmodel->find_company2($id);
-	$this->session->set_userdata('field_name',$company_name);
+	$this->session->set_userdata('field_name',$field_name);
 	$salary=$this->loginmodel->find_company3($id);
 	$this->session->set_userdata('salary',$salary);
 	$state_name=$this->loginmodel->find_company4($id);

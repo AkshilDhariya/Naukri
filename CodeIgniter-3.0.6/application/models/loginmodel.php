@@ -149,6 +149,24 @@ class loginmodel extends CI_model
 				 	->get();
 				 	return $q->num_rows();
 	}
+	public function num_row2()
+	{
+		$id=$this->session->userdata('id');
+		$q=$this->db->select()
+				 	->from('question')
+					->where(['userid'=> $id ])
+				 	->get();
+				 	return $q->num_rows();
+	}
+	public function num_row3()
+	{
+		$company_name=$this->session->userdata('companyname');
+		$q=$this->db->select()
+				 	->from('question')
+					->where(['company_name'=> $company_name])
+				 	->get();
+				 	return $q->num_rows();
+	}
 
 	
 	public function companyList($limit,$offset)
@@ -162,6 +180,25 @@ class loginmodel extends CI_model
 				 return $q->result();
 				 	
 				 	}
+	public function userList2($limit,$offset)
+	{
+		$id=$this->session->userdata('id');
+		$q=$this->db->select()
+				 	->from('question')
+					->where(['userid'=> $id ])
+					->limit($limit,$offset)
+				 	->get();
+				 return $q->result();
+	}
+	public function userList5($limit,$offset)
+	{
+		$company_name=$this->session->userdata('companyname');
+		$q=$this->db->select()
+				 	->from('question')
+					->where(['company_name'=> $company_name])
+				 	->get();
+				 return $q->result();
+	}
 	
 	public function userList()
 	{
@@ -300,6 +337,34 @@ class loginmodel extends CI_model
 		
 
 	}
+	public function get_user($userid)
+	{
+		   	 $q=$this->db->select()
+						 ->where('userid',$userid)
+						 ->get('resume');
+				 return $q->row();
+		
+
+	}
+	public function num_row()
+	{
+		$id=$this->session->userdata('id');
+		$q=$this->db->select()
+					->where(['userid'=> $id ])
+				 	->get('question');
+				 	return $q->num_rows();
+	}
+	public function userList3($limit,$offset)
+	{
+		$id=$this->session->userdata('id');
+		$q=$this->db->select()
+				 	->from('question')
+					->where(['userid'=> $id ])
+					->limit($limit,$offset)
+				 	->get();
+				 return $q->result();
+				 	
+				 	}
 	public function fetch2()
 	{
 		$id=$this->session->userdata('id');

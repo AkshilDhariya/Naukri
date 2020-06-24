@@ -17,7 +17,8 @@
      
     </ul>
       <?php
-          if($this->session->userdata('id')){?>
+          if($this->session->userdata('companyname'))
+            {?>
             <li><a href="<?= base_url('company/logout'); ?> " class="btn btn-danger">Logout</a></li>
           <?php }
           ?>

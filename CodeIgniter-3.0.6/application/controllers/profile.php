@@ -14,9 +14,26 @@ public function register()
 public function welcome()
 {
 	$this->load->model('loginmodel');
-	$question=$this->loginmodel->fetch2();
-	$this->load->view('users/profile',compact('question'));	
-}
+		$this->load->library('pagination');
+		$config=[
+			'base_url'=>base_url('profile/welcome'),
+			'per_page'=>2,
+			'total_rows'=>$this->loginmodel->num_row2(),
+			'full_tag_open' => "<ul class='pagination'>",
+			'full_tag_close' => "</ul>",
+			'next_tag_open' =>"<li class='page-item'>",
+			'next_tag_close' =>"</li>",
+			'prev_tag_open' =>"<li class='page-item'>",
+			'prev_tag_close' =>"</li>",
+			'num_tag_open' =>"<li class='page-item'>",
+			'num_tag_close' =>"<li>",
+			'cur_tag_open' =>"<li class='page-item active'><a>",
+			'cur_tag_close'=>"</a></li>"
+			];
+			$this->pagination->initialize($config);
+			$question=$this->loginmodel->userList2($config['per_page'],$this->uri->segment(3));
+			$this->load->view('users/profile',['question'=>$question]);}
+
 public function sendmail()
 {
 	 $this->form_validation->set_rules('username','User Name','required|alpha|min_length[3]|max_length[10]');

@@ -1,14 +1,19 @@
 <?php include('header.php');?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<?php $company_name=$this->session->userdata('companyname'); ?>
+<?php $companyname=$this->session->userdata('companyname'); ?>
 <div class=container>
 	<div class="row">
-				<div class="btn btn-success"><h2 style="width:1050px;"><?php echo $company_name ?></h2></div></div></div>
+				<div class="btn btn-success"><h2 style="width:1050px;"><?php echo $companyname ?></h2></div></div></div>
 
 <div class="container" style="margin-top:50px;">
 	<div class="row">
-		<a href="adduser" class="btn btn-lg btn-primary">Add Company Field</a>
+	
+		<?= anchor('company/addcompany','Add Company Field',['class'=>'btn btn-lg btn-primary']);
+					?>
+		<div style="margin-left:500px;">
+		<?= anchor('company/applieduser','View Applied Users',['class'=>'btn btn-lg btn-primary']);?>
+		</div>
 	</div>
 
 

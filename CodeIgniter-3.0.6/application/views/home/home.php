@@ -1,7 +1,7 @@
 <?php include('header.php');?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<center><img src="<?= base_url("download/Job-Searching")?>"alt="" width="1250" height="300"></center>
+<center><img src="<?= base_url("download/Job-Searching")?>"alt="" width="1250" height="300" class="img-responsive"></center>
 
 <div class="container" style="margin-top:30px;">
 <center><font color="red"><h4><b><marquee>LOOKING FOR JOB?GET JOB ACCORDING TO ELIGIBLITY</marquee></b></h4></font></center></div>

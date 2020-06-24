@@ -22,7 +22,7 @@ $config=[
 			[
 				'field'=>'salary',
 				'label'=>'Salary',
-				'rules'=>'required|alpha'
+				'rules'=>'required'
 
 			],
 			[

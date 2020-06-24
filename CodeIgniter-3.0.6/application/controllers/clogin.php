@@ -4,7 +4,7 @@ class clogin extends MY_Controller
 	public function __construct()
 	{
 	parent::__construct();
-	if($this->session->userdata('id'))
+	if($this->session->userdata('companyname'))
 	return redirect('company/welcome');
 	}
 	public function index()

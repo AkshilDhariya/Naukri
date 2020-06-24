@@ -33,6 +33,12 @@
       <h3>Assessment Questions</h3>
         <?php echo form_open("profile/enter");?>
          <?php echo form_hidden('userid',$this->session->userdata('id')) ;?>
+         <?php echo form_hidden('company_name',$this->session->userdata('company_name')) ;?>
+         <?php echo form_hidden('field_name',$this->session->userdata('field_name')) ;?>
+         <?php echo form_hidden('salary',$this->session->userdata('salary')) ;?>
+         <?php echo form_hidden('state_name',$this->session->userdata('state_name')) ;?>
+         <?php echo form_hidden('city_name',$this->session->userdata('city_name')) ;?>
+         <?php echo form_hidden('username',$this->session->userdata('username')) ;?>
                      <div class="row">
                       <div class="col-lg-6">
                      <div class="form-group">
